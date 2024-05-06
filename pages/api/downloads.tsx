@@ -11,7 +11,7 @@ export default async function handler(
     res: NextApiResponse<ResponseData>
 ) {
     if (req.method == "POST"){
-        let formatted = moment(new Date()).format('YYYY-MM-DD hh:mm')
+        let formatted = moment(new Date()).format('YYYY-MM-DD HH:mm')
         let data = await sql`INSERT INTO downloads (DateTime) VALUES (${formatted})`
         res.status(200).json({ message: data.rows.length.toString() })
     }
